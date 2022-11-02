@@ -38,8 +38,10 @@ class ExpertSystem:
 	
 	def limitDisease(self, symptom):
 		for disease in self.diseaseDictionary:
-			if(symptom not in self.diseaseDictionary[disease] and disease in self.possibleDiseases):
+			if((symptom not in self.diseaseDictionary[disease]) and (disease in self.possibleDiseases)):
 				self.possibleDiseases.remove(disease)
+				# print('Symptom ->', symptom)
+				# print('Slownik choroby ->', self.diseaseDictionary[disease])
 				# print('Deleted from possible diseases ->', disease)
 
 	

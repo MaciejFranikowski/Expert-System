@@ -3,7 +3,8 @@ from classes.ExpertSystem import ExpertSystem
 def printMenu():
     print('1 - Podaj symptom')
     print('2 - Wyświetl wynik na podstawie podanych symptomów')
-    print('3 - Zakończ działanie programu')
+    print('3 - Wyświetl dostępne w bazie symptomy')
+    print('4 - Zakończ działanie programu')
 
 def printLongLine():
     print('------------------------------------------------------------------------------------------------')
@@ -15,10 +16,17 @@ def switch(action, system):
         results(system)
         exit()
     elif action == "3":
+        availableSymptoms(system)
+    elif action == "4":
         print('Koniec pracy systemu')
         exit()
     else:
         print("Proszę wybierz poprawną opcję")
+
+def availableSymptoms(system):
+    symptoms = system.symptomArray
+    print("Baza obejmuje następujące symptomy:")
+    print(*symptoms, sep = ", ")
 
 def results(system):
     finalDiseases = system.possibleDiseases
