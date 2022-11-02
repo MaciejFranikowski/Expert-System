@@ -32,15 +32,14 @@ class ExpertSystem:
 	def giveSymptom(self, symptom):
 		if(symptom in self.symptomArray):
 			print('Symptom zaakceptowany')
-
+			self.limitDisease(symptom)
 		else:
 			print('Podany sympton nie znajduje się w bazie')
 	
 	def limitDisease(self, symptom):
-		print()
 		for disease in self.diseaseDictionary:
-			if(symptom not in self.diseaseDictionary[disease]):
+			if(symptom not in self.diseaseDictionary[disease] and disease in self.possibleDiseases):
 				self.possibleDiseases.remove(disease)
-				print('Deleted from possible diseases ->', disease)
+				# print('Deleted from possible diseases ->', disease)
 
 	
