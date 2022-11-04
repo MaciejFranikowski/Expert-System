@@ -1,48 +1,48 @@
 from classes.ExpertSystem import ExpertSystem
 
 def printMenu():
-    print('1 - Podaj symptom')
-    print('2 - Wyświetl wynik na podstawie podanych symptomów')
-    print('3 - Wyświetl dostępne w bazie symptomy')
-    print('4 - Zakończ działanie programu')
+    print('1 - Input symptom')
+    print('2 - Show diagnosis based on given symptoms')
+    print('3 - Show available symptoms')
+    print('4 - Quit the system')
 
 def printLongLine():
     print('------------------------------------------------------------------------------------------------')
 
 def switch(action, system):
     if action == "1":
-        system.giveSymptom(symptom=input('Podaj symptom: '))
+        system.giveSymptom(symptom=input('Input symptom: '))
     elif action == "2":
         results(system)
         exit()
     elif action == "3":
         availableSymptoms(system)
     elif action == "4":
-        print('Koniec pracy systemu')
+        print('The system has stopped.')
         exit()
     else:
-        print("Proszę wybierz poprawną opcję")
+        print("Please choose a valid option")
 
 def availableSymptoms(system):
     symptoms = system.symptomArray
-    print("Baza obejmuje następujące symptomy:")
+    print("Dataset includes aftermentioned symptoms:")
     print(*symptoms, sep = ", ")
 
 def results(system):
     finalDiseases = system.possibleDiseases
-    print("Podane symptomy wskazują na choroby/chorobę:")
+    print("Given symptomss suggest this disease/diseases:")
     print(*finalDiseases, sep = ", ")
 
 def introMessage():
     printLongLine()
-    print('Witaj w systemie eksperckim wspomagającym diagnozę choroby')
-    print('Podawaj symptomy do momentu podania przez system diagnozy lub kiedy zakończysz podawać symptomy')
+    print('Welcome to an expert system assisting in diagnosis')
+    print('Please input symtpoms until you see a diagnosis or you have run out of symptoms')
     printLongLine()
 
 def mainLoop(system):
     while True:
         printMenu()
-        action = input("Co chciałbyś zrobić?    ")
+        action = input("What would you like to do? ")
         switch(action, system)
         printLongLine()
         if(len(system.possibleDiseases) == 1):
