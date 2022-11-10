@@ -30,7 +30,7 @@ def availableSymptoms(system):
 
 def results(system):
     finalDiseases = system.possibleDiseases
-    print("Given symptomss suggest this disease/diseases:")
+    print("Given symptoms would suggest this disease/diseases:")
     print(*finalDiseases, sep = ", ")
 
 def introMessage():
